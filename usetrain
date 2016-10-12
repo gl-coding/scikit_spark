@@ -1,0 +1,8 @@
+#!/bin/bash
+
+file=$1
+cp $file train
+category=`cat $file | awk -F',' '{print $NF}' | uniq | wc -l`
+echo $category
+./genColor.py $category
+echo $file > trainfile

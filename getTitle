@@ -1,0 +1,5 @@
+#!/bin/bash
+
+file=$1
+profile=title
+cat $file | sed -n 1p | sed  's/\t\t/\t/g' | sed 's/\t/,/g' | sed 's/$/,category/' > $profile

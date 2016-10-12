@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ $# != 2 ]; then
+    echo "please input src category, exit..."
+    exit
+fi
+
+file=$1
+category=$2
+
+sed -i "s/$/,${category}/g" $file

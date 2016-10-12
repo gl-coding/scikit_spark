@@ -1,0 +1,6 @@
+#!/bin/bash
+
+file=$1
+tmpfile=$file".tmp"
+cat $file | sed  's/\t\t/\t/g' | sed 's/\t/,/g' > $tmpfile
+sed -i '1d' $tmpfile

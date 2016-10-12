@@ -1,0 +1,7 @@
+#!/bin/bash
+
+src=$1
+des=$src".insert"
+
+echo $src > insertfile
+./insertLinenum $src $des

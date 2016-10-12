@@ -1,0 +1,16 @@
+#!/bin/bash
+
+file=$1
+target=$2
+
+if [ -f $target ]; then
+    rm $target
+fi
+
+linenum=`cat $file | wc -l`
+
+for ((i=1;i<=$linenum;i++))
+do
+    sed -n $i"p" $file | sed "s/^/$i,/g" >> $target
+done
+

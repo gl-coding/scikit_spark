@@ -1,0 +1,15 @@
+#!/bin/bash
+
+trainfile=train
+
+rm $trainfile
+category=0
+
+for file in $@; do
+    echo $file
+    ./clean $file
+    tmpfile=$file".tmp"
+    ./append $tmpfile $category
+    cat $tmpfile >> $trainfile
+    category=$(($category+1))
+done

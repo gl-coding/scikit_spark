@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ $# != 2 ]; then
+    echo "please input src category, exit..."
+    exit
+fi
+
+file=$1
+category=$2
+newfile="varification_"$file"_"$category
+./clean $file
+tmpfile=$file".tmp"
+./append $tmpfile $category 
+cat $tmpfile > $newfile

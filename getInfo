@@ -1,0 +1,7 @@
+#!/bin/bash
+
+file=$1
+cols=`sed -n 1p $file | awk -F',' '{print NF}'`
+cates=`sed -n 1p $file | awk -F',' '{print $NF}'`
+
+echo "cols $cols; category $cates"

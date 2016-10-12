@@ -1,0 +1,22 @@
+#!/bin/bash
+
+traintmp=train.tmp
+trainfile="train"
+
+if [ -f $trainfile ]; then
+    rm $trainfile
+fi
+
+category=0
+
+for file in $@; do
+    echo $file
+    trainfile=$trainfile"_"$file
+    ./clean $file
+    tmpfile=$file".tmp"
+    ./append $tmpfile $category
+    cat $tmpfile >> $traintmp
+    category=$(($category+1))
+done
+
+mv $traintmp $trainfile
